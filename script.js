@@ -65,7 +65,7 @@ edit.addEventListener('click', function () {
     let headingFourElements = document.querySelectorAll(".fourth")
     form.style.display = "block"
     for (let element of headingFourElements) {
-        console.log(element)
+       
         element.remove()
     }
 
@@ -124,3 +124,39 @@ deleteButton.addEventListener('click', function () {
     form.style.display = "block"
     container.style.display = "none"
 })
+
+window.addEventListener('load',function(){
+    let userData = JSON.parse(localStorage.getItem("userDataArr"))
+    let userGender = JSON.parse(localStorage.getItem("userGenderObj"))
+    if(userData !== null){
+        utilityFunction()
+    }
+    else{
+        form.style.display = "block"
+    }
+})
+function utilityFunction(){
+    let userData = JSON.parse(localStorage.getItem("userDataArr"))
+    let userGender = JSON.parse(localStorage.getItem("userGenderObj"))
+    let details = ["First Name:", "Last Name:", "Date:", "Mobile No:", "Email:"]
+    h2.style.display = "block"
+    for (let i = 0; i < userData.length; i++) {
+        let h4 = document.createElement('h4')
+        h4.className = "fourth"
+        h4.innerText = `${details[i]}  ${userData[i]}`
+        container.appendChild(h4)
+
+    }
+    for (let key in userGender) {
+        let h4 = document.createElement('h4')
+        h4.className = "fourth"
+        h4.innerText = `${key} : ${userGender[key]}`
+        container.appendChild(h4)
+
+    }
+    deleteButton.style.display = "block"
+    form.style.display = "none"
+    edit.style.display = "block"
+    document.body.appendChild(container)
+    container.style.display = "block"
+}
