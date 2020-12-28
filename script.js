@@ -1,7 +1,7 @@
 let inputs = document.querySelectorAll("input")
 let submitButton = document.querySelector(".submit")
 let container = document.querySelector(".container")
-
+let deleteAll = document.querySelector(".deleteall")
 // total objects array
 let allPersonsArray = []
 window.addEventListener('load', function () {
@@ -148,6 +148,10 @@ function removingFormValues() {
     }
 }
 
+deleteAll.addEventListener("click",function(){
+    localStorage.clear()
+    window.location.reload()
+})
 
 function sortingArray(array) {
     let newArray = array.sort(compare)
