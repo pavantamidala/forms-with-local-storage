@@ -10,23 +10,24 @@
 
 <body>
 
-    <form action="#">
+    <form action="#" novalidate>
         <h1>Enter your details</h1>
         <label for="firstname">First name:</label>
         <input type="text" class="fname" id="firstname" required><br>
-
+        <p class="validator firstname-validator"></p>
         <label for="lastname">Last Name:</label>
         <input type="text" class="lname" id="lastname" required><br>
-
+        <p class="lastname-validator validator"></p>
         <label for="date">Date:</label>
         <input type="date" name="" id="date" required><br>
+        <p class="validator date-validator"></p>
         <label for="phone">Mobile No:</label>
         <input type="number" name="" id="phone" required>
-
+        <p class="number-validator validator"></p>
         <br>
         <label for="email">Email:</label>
         <input type="email" name="" id="email" required><br>
-        
+        <p class="email-validator validator"></p>
         <button class="submit" type="submit">Submit</button>
     </form>
     <div class="container">
