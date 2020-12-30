@@ -103,6 +103,7 @@ window.addEventListener('load', function () {
 
 )
 submitButton.addEventListener("click", function (e) {
+    let k = 0
     let allPersons = gettingAllPersonsArray()
     person = creatingObjects(allPersons)
     console.log(typeof (person))
@@ -110,13 +111,17 @@ submitButton.addEventListener("click", function (e) {
         settingAllPersonsArrayToLocal(person)
         e.preventDefault()
         removingFormValues()
+        k=k+1
         window.location.reload()
     }
     e.preventDefault()
-    for(let para of validatorParas){
-        para.style.display = "block"
+    if(k===0){
+        for (let para of validatorParas) {
+            para.style.display = "block"
+        }
     }
 })
+
 
 // setting allpersonsArray  to localStorage
 function settingAllPersonsArrayToLocal(type) {
